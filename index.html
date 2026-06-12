@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
+  <!-- Meta tags para corrigir as barras no iPhone -->
+  <meta name="theme-color" content="#1a001a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
   <!-- Meta tags para o preview no WhatsApp/Chats -->
   <meta property="og:title" content="kauã pugliese lindo" />
   <meta property="og:description" content="oi lindo abre esse link" />
@@ -33,12 +38,19 @@
       --rose: #c2185b;
     }
 
-    html,
-    body {
+    /* CORREÇÃO DO FUNDO AQUI */
+    html {
+      background-color: #1a001a;
       height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      min-height: 100dvh;
       font-family: 'Lato', sans-serif;
       background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
-      min-height: 100vh;
+      background-attachment: fixed;
       overflow-x: hidden;
     }
 
@@ -88,7 +100,9 @@
       flex-direction: column;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      /* CORREÇÃO DAS ÁREAS SEGURAS AQUI */
       padding: 20px 16px;
+      padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
       z-index: 10;
     }
@@ -681,7 +695,7 @@
   </div>
 
   <!-- ============================= -->
-  <!-- SCREEN 5 – FINAL ❤️           -->
+  <!-- SCREEN 5 – FINAL ❤️          -->
   <!-- ============================= -->
   <div class="screen" id="screen5">
     <div class="card">
@@ -928,7 +942,6 @@
       playError();
       document.getElementById('georgia-popup').classList.add('show');
     }
-
 
   </script>
 </body>
