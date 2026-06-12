@@ -41,8 +41,6 @@
       min-height: 100dvh;
       font-family: 'Lato', sans-serif;
       
-      /* O pulo do gato: Gradiente radial. 
-         Centro claro, extremidades totalmente #1a001a. */
       background-color: #1a001a;
       background-image: radial-gradient(circle at 50% 50%, #3d0030 0%, #1a001a 80%);
       
@@ -618,24 +616,32 @@
     ];
     let noIdx = 0, escaped = 0, hasEscaped = false;
 
+    /* AQUI ESTÁ O CÓDIGO NOVO DO BOTÃO QUE NÃO DEIXA ELE SUMIR */
     function moveNoButton() {
       if (!hasEscaped) {
         const rect = noBtn.getBoundingClientRect();
+        document.body.appendChild(noBtn); 
         noBtn.style.position = 'fixed';
         noBtn.style.left = rect.left + 'px';
         noBtn.style.top = rect.top + 'px';
+        noBtn.style.zIndex = '999999';
+        noBtn.style.background = 'rgba(255, 255, 255, 0.15)';
+        noBtn.style.border = '1px solid rgba(255, 255, 255, 0.4)';
         hasEscaped = true;
       }
       escaped++;
       noIdx = Math.min(noIdx + 1, noPhrases.length - 1);
       noBtn.textContent = noPhrases[noIdx];
-      noBtn.style.transform = `scale(${Math.max(0.5, 1 - escaped * 0.04)})`;
-      noBtn.style.opacity = Math.max(0.22, 1 - escaped * 0.07);
-      const margin = 60;
-      const w = window.innerWidth, h = window.innerHeight;
-      const bw = noBtn.offsetWidth || 110, bh = noBtn.offsetHeight || 54;
-      noBtn.style.left = (margin + Math.random() * (w - bw - 2 * margin)) + 'px';
-      noBtn.style.top = (margin + Math.random() * (h - bh - 2 * margin)) + 'px';
+      noBtn.style.transform = `scale(${Math.max(0.85, 1 - escaped * 0.02)})`;
+      noBtn.style.opacity = '1'; 
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const bw = noBtn.offsetWidth || 110;
+      const bh = noBtn.offsetHeight || 54;
+      const maxLeft = w - bw - 20;
+      const maxTop = h - bh - 20;
+      noBtn.style.left = (20 + Math.random() * (maxLeft - 20)) + 'px';
+      noBtn.style.top = (20 + Math.random() * (maxTop - 20)) + 'px';
     }
 
     noBtn.addEventListener('mouseenter', moveNoButton);
