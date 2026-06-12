@@ -1,20 +1,10 @@
-Aqui está o código completo corrigido.
-
-O segredo foi mudar o gradiente para ficar **vertical** (de cima para baixo). Como o seu gradiente antigo era na diagonal, o topo esquerdo tinha uma cor e o topo direito tinha outra, aí o iPhone não conseguia misturar e criava aquelas barras roxas destacadas. Agora, todo o topo e todo o fundo têm a mesma cor exata das barras do iPhone, deixando tudo invisível e liso.
-
-Substitua todo o conteúdo do seu arquivo `index.html` por este:
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1a001a" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   
   <meta property="og:title" content="kauã pugliese lindo" />
   <meta property="og:description" content="oi lindo abre esse link" />
@@ -43,18 +33,16 @@ Substitua todo o conteúdo do seu arquivo `index.html` por este:
       --rose: #c2185b;
     }
 
-    /* CORREÇÃO DO FUNDO VERTICAL PARA COMBINAR COM AS BARRAS DO IPHONE */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
+    html,
+    body {
       height: 100%;
-      min-height: 100dvh;
-      background-color: #1a001a;
-      background: linear-gradient(to bottom, #1a001a 0%, #3d0030 50%, #1a001a 100%);
-      overflow: hidden;
-      overscroll-behavior: none;
       font-family: 'Lato', sans-serif;
+      /* Ajuste principal do iPhone: cor de fundo sólida e trava do efeito elástico */
+      background-color: #1a001a;
+      background-image: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
+      min-height: 100dvh;
+      overflow-x: hidden;
+      overscroll-behavior: none; 
     }
 
     /* ===== FLOATING HEARTS ===== */
@@ -104,6 +92,7 @@ Substitua todo o conteúdo do seu arquivo `index.html` por este:
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding: 20px 16px;
+      /* Ajuste do topo da bateria (notch) */
       padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
       z-index: 10;
@@ -573,6 +562,12 @@ Substitua todo o conteúdo do seu arquivo `index.html` por este:
       .activities-list { gap: 10px; }
       .btn { font-size: 1.1rem; padding: 19px 36px; }
       .btn-whatsapp { font-size: 1.15rem; padding: 20px 28px; }
+      html, body {
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 20%, rgba(194,24,91,0.08) 0%, transparent 60%),
+          linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
+      }
     }
 
     /* ===== SPARKLE ===== */
@@ -926,5 +921,3 @@ Substitua todo o conteúdo do seu arquivo `index.html` por este:
 </body>
 
 </html>
-
-```
