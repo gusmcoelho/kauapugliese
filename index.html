@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#1a001a" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
   <!-- Meta tags para o preview no WhatsApp/Chats -->
@@ -51,6 +52,7 @@
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
+      background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
     }
 
     .heart-particle {
@@ -90,7 +92,6 @@
       flex-direction: column;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
       padding: 20px 16px;
       padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
@@ -745,9 +746,9 @@
     const noBtn = document.getElementById('btn-no');
     const noPhrases = [
       'não', 'por favor...', 'por favor... 🥺', 'por favorzinho...',
-      'vai sim né? 🥺', 'tô implorando...', 'vai sim fdpp',
-      'última chance!', 'ai, por favor!', 'você vai caralho',
-      'eu te amo 💕', 'VAMOS!! 🎉',
+      'vai sim né? 🥺', 'tô implorando...', 'pleaaaase 🙏',
+      'última chance!', 'ai, por favor!', 'você é incrível ✨',
+      'eu te adoro 💕', 'VAMOS!! 🎉',
     ];
     let noIdx = 0, escaped = 0, hasEscaped = false;
 
