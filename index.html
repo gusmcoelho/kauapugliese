@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
   <meta name="theme-color" content="#1a001a" />
   
   <meta property="og:title" content="kauã pugliese lindo" />
@@ -15,9 +16,8 @@
   <title>kauã pugliese lindo</title>
   <link rel="icon" type="image/png" href="fotos/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  
   <style>
     *,
     *::before,
@@ -35,12 +35,17 @@
 
     html,
     body {
+      margin: 0;
+      padding: 0;
       height: 100%;
-      font-family: 'Lato', sans-serif;
-      /* Ajuste principal do iPhone: cor de fundo sólida e trava do efeito elástico */
-      background-color: #1a001a;
-      background-image: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
       min-height: 100dvh;
+      font-family: 'Lato', sans-serif;
+      
+      /* O pulo do gato: Gradiente radial. 
+         Centro claro, extremidades totalmente #1a001a. */
+      background-color: #1a001a;
+      background-image: radial-gradient(circle at 50% 50%, #3d0030 0%, #1a001a 80%);
+      
       overflow-x: hidden;
       overscroll-behavior: none; 
     }
@@ -66,15 +71,8 @@
         transform: translateY(0) rotate(0deg) scale(0.8);
         opacity: 0;
       }
-
-      10% {
-        opacity: 0.5;
-      }
-
-      90% {
-        opacity: 0.2;
-      }
-
+      10% { opacity: 0.5; }
+      90% { opacity: 0.2; }
       100% {
         transform: translateY(-110vh) rotate(360deg) scale(1.2);
         opacity: 0;
@@ -92,7 +90,6 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding: 20px 16px;
-      /* Ajuste do topo da bateria (notch) */
       padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
       z-index: 10;
@@ -104,15 +101,8 @@
     }
 
     @keyframes screenIn {
-      from {
-        opacity: 0;
-        transform: scale(0.88) translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
+      from { opacity: 0; transform: scale(0.88) translateY(24px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     /* ===== CARD ===== */
@@ -144,15 +134,8 @@
     }
 
     @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(-4deg);
-      }
-
-      50% {
-        transform: translateY(-12px) rotate(4deg);
-      }
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-12px) rotate(4deg); }
     }
 
     .sticker-shake {
@@ -160,27 +143,11 @@
     }
 
     @keyframes shake {
-
-      0%,
-      100% {
-        transform: rotate(0deg);
-      }
-
-      20% {
-        transform: rotate(-12deg);
-      }
-
-      40% {
-        transform: rotate(12deg);
-      }
-
-      60% {
-        transform: rotate(-8deg);
-      }
-
-      80% {
-        transform: rotate(8deg);
-      }
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-12deg); }
+      40% { transform: rotate(12deg); }
+      60% { transform: rotate(-8deg); }
+      80% { transform: rotate(8deg); }
     }
 
     h1 {
@@ -227,13 +194,8 @@
       box-shadow: 0 6px 24px rgba(233, 30, 140, 0.42);
     }
 
-    .btn-primary:active {
-      transform: scale(0.96);
-    }
-
-    .btn-full {
-      width: 100%;
-    }
+    .btn-primary:active { transform: scale(0.96); }
+    .btn-full { width: 100%; }
 
     .buttons {
       display: flex;
@@ -243,7 +205,6 @@
       flex-wrap: wrap;
     }
 
-    /* ===== "NÃO" BUTTON ===== */
     #btn-no {
       position: static;
       z-index: 9999;
@@ -291,9 +252,7 @@
       text-align: left;
     }
 
-    .field-group {
-      text-align: left;
-    }
+    .field-group { text-align: left; }
 
     input[type="date"],
     input[type="time"] {
@@ -358,9 +317,7 @@
       transition: background 0.15s, border-color 0.15s, transform 0.12s;
     }
 
-    .activity-card:active {
-      transform: scale(0.97);
-    }
+    .activity-card:active { transform: scale(0.97); }
 
     .activity-card.selected {
       background: rgba(233, 30, 140, 0.17);
@@ -368,15 +325,8 @@
       box-shadow: 0 0 14px rgba(233, 30, 140, 0.28);
     }
 
-    .activity-card .act-emoji {
-      font-size: 1.5rem;
-    }
-
-    .activity-card .act-name {
-      font-weight: 700;
-      color: #fff;
-      font-size: 0.9rem;
-    }
+    .activity-card .act-emoji { font-size: 1.5rem; }
+    .activity-card .act-name { font-weight: 700; color: #fff; font-size: 0.9rem; }
 
     /* ===== SCREEN 5 – FINAL ===== */
     .sticker-final {
@@ -389,7 +339,6 @@
       animation: bounce 2s ease-in-out infinite;
     }
 
-    /* ===== GEORGIA POPUP ===== */
     #georgia-popup {
       display: none;
       position: fixed;
@@ -402,19 +351,9 @@
       animation: fadeIn 0.3s ease both;
     }
 
-    #georgia-popup.show {
-      display: flex;
-    }
+    #georgia-popup.show { display: flex; }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     #georgia-popup img {
       width: min(75vw, 300px);
@@ -426,15 +365,8 @@
     }
 
     @keyframes popIn {
-      from {
-        transform: rotate(-90deg) scale(0.5);
-        opacity: 0;
-      }
-
-      to {
-        transform: rotate(-90deg) scale(1);
-        opacity: 1;
-      }
+      from { transform: rotate(-90deg) scale(0.5); opacity: 0; }
+      to { transform: rotate(-90deg) scale(1); opacity: 1; }
     }
 
     #georgia-popup .georgia-text {
@@ -450,15 +382,8 @@
     }
 
     @keyframes textPop {
-      from {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .final-title {
@@ -493,21 +418,10 @@
       line-height: 1.5;
     }
 
-    .detail-row:last-child {
-      margin-bottom: 0;
-    }
+    .detail-row:last-child { margin-bottom: 0; }
+    .detail-row .d-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .detail-row strong { color: var(--pink); }
 
-    .detail-row .d-icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .detail-row strong {
-      color: var(--pink);
-    }
-
-    /* ===== WHATSAPP BUTTON ===== */
     .btn-whatsapp {
       display: flex;
       align-items: center;
@@ -530,29 +444,15 @@
       touch-action: manipulation;
     }
 
-    .btn-whatsapp:active {
-      transform: scale(0.96);
-    }
+    .btn-whatsapp:active { transform: scale(0.96); }
 
     @keyframes waPulse {
-
-      0%,
-      100% {
-        box-shadow: 0 6px 24px rgba(233, 30, 140, 0.45);
-      }
-
-      50% {
-        box-shadow: 0 6px 36px rgba(233, 30, 140, 0.75);
-        transform: scale(1.03);
-      }
+      0%, 100% { box-shadow: 0 6px 24px rgba(233, 30, 140, 0.45); }
+      50% { box-shadow: 0 6px 36px rgba(233, 30, 140, 0.75); transform: scale(1.03); }
     }
 
-    /* ===== DESKTOP ===== */
     @media (min-width: 640px) {
-      .card {
-        max-width: 500px;
-        padding: 48px 40px 44px;
-      }
+      .card { max-width: 500px; padding: 48px 40px 44px; }
       h1 { font-size: 2.1rem; }
       .sticker { width: 160px !important; height: auto !important; }
       .sticker-final { width: 220px; height: 220px; }
@@ -562,15 +462,8 @@
       .activities-list { gap: 10px; }
       .btn { font-size: 1.1rem; padding: 19px 36px; }
       .btn-whatsapp { font-size: 1.15rem; padding: 20px 28px; }
-      html, body {
-        background:
-          radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.08) 0%, transparent 60%),
-          radial-gradient(ellipse at 80% 20%, rgba(194,24,91,0.08) 0%, transparent 60%),
-          linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
-      }
     }
 
-    /* ===== SPARKLE ===== */
     .sparkle {
       position: fixed;
       pointer-events: none;
@@ -579,15 +472,8 @@
     }
 
     @keyframes sparkleAnim {
-      0% {
-        opacity: 1;
-        transform: scale(0.5) translateY(0);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(1.8) translateY(-80px);
-      }
+      0% { opacity: 1; transform: scale(0.5) translateY(0); }
+      100% { opacity: 0; transform: scale(1.8) translateY(-80px); }
     }
   </style>
 </head>
@@ -706,7 +592,6 @@
   </div>
 
   <script>
-    /* ===== FLOATING HEARTS ===== */
     const emojis = ['❤️', '🌹', '💕', '💗', '💖', '🌸', '✨', '💝', '💫', '🩷'];
     const bg = document.getElementById('heartsBg');
     function spawnHeart() {
@@ -724,7 +609,6 @@
     for (let i = 0; i < 18; i++) spawnHeart();
     setInterval(spawnHeart, 1100);
 
-    /* ===== "NÃO" BUTTON ESCAPE ===== */
     const noBtn = document.getElementById('btn-no');
     const noPhrases = [
       'não', 'por favor...', 'por favor... 🥺', 'por favorzinho...',
@@ -757,7 +641,6 @@
     noBtn.addEventListener('mouseenter', moveNoButton);
     noBtn.addEventListener('touchstart', e => { e.preventDefault(); moveNoButton(); }, { passive: false });
 
-    /* ===== SPARKLE BURST ===== */
     function burst() {
       for (let i = 0; i < 18; i++) {
         setTimeout(() => {
@@ -773,7 +656,6 @@
       }
     }
 
-    /* ===== STATE ===== */
     const selectedActivities = new Set();
     const activityLabels = {
       comer: '🍔 Sair pra comer',
@@ -783,7 +665,6 @@
       girassois: '🌻 Ver Mar de Girassóis',
       georgia: '卍 Casa da Géorgia',
     };
-    // Labels sem emoji para a mensagem do WhatsApp
     const activityLabelsText = {
       comer: 'Sair pra comer',
       cinema: 'Cinema',
@@ -793,7 +674,6 @@
       georgia: 'Casa da Georgia',
     };
 
-    /* ===== SONS ===== */
     let audioCtx = null;
     function getCtx() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -844,7 +724,6 @@
       osc.start(); osc.stop(ctx.currentTime + 0.22);
     }
 
-    /* ===== NAVIGATION ===== */
     function showScreen(id) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       const el = document.getElementById(id);
@@ -900,7 +779,6 @@
       document.getElementById('final-time').textContent = timeFormatted;
       document.getElementById('final-acts').textContent = actsList;
 
-      // Monta mensagem sem emojis pra evitar corrompimento na URL
       const msg = 'oii gu lindo gostoso\nnosso date é dia ' + dateFormatted + ' as ' + timeFormatted + '\no que vamos fazer: ' + actsListText;
       const waUrl = 'https://wa.me/5518997028899?text=' + encodeURIComponent(msg);
       document.getElementById('whatsapp-btn').href = waUrl;
@@ -911,12 +789,10 @@
 
     document.getElementById('input-date').min = new Date().toISOString().split('T')[0];
 
-    /* ===== GEORGIA EASTER EGG ===== */
     function showGeorgia() {
       playError();
       document.getElementById('georgia-popup').classList.add('show');
     }
-
   </script>
 </body>
 
