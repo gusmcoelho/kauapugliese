@@ -583,7 +583,7 @@
     </div>
   </div>
 
-  <div id="georgia-popup" onclick="this.classList.remove('show')">
+  <div id="georgia-popup" onclick="closeGeorgia()">
     <div class="georgia-text">DEUS NOS LIVRE!!!!</div>
     <img src="fotos/georgia.png" alt="Géorgia" />
     <p style="margin-top:24px; color:rgba(255,255,255,0.5); font-size:0.85rem;">toque para fechar</p>
@@ -795,9 +795,20 @@
 
     document.getElementById('input-date').min = new Date().toISOString().split('T')[0];
 
+    const demonicLaugh = new Audio('fotos/simplesound-horror-trailer.mp3');
+    demonicLaugh.loop = true;
+
     function showGeorgia() {
       playError();
       document.getElementById('georgia-popup').classList.add('show');
+      demonicLaugh.currentTime = 0;
+      demonicLaugh.play().catch(e => console.log(e));
+    }
+
+    function closeGeorgia() {
+      document.getElementById('georgia-popup').classList.remove('show');
+      demonicLaugh.pause();
+      demonicLaugh.currentTime = 0;
     }
   </script>
 </body>
