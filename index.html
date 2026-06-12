@@ -785,7 +785,7 @@
       document.getElementById('final-time').textContent = timeFormatted;
       document.getElementById('final-acts').textContent = actsList;
 
-      const msg = 'oii gu lindo gostoso\nnosso date é dia ' + dateFormatted + ' as ' + timeFormatted + '\no que vamos fazer: ' + actsListText;
+      const msg = `oi gu gato gostoso lindo tesudo\n\n📅 nosso date é dia: ${dateFormatted}\n🕐 horário: ${timeFormatted}\n🎯 o que vamos fazer:\n- ${[...selectedActivities].map(k => activityLabelsText[k]).join('\n- ')}`;
       const waUrl = 'https://wa.me/5518997028899?text=' + encodeURIComponent(msg);
       document.getElementById('whatsapp-btn').href = waUrl;
 
