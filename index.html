@@ -1,4 +1,8 @@
-Aqui está o arquivo inteiro. Substitua tudo por esse código. Ele trava a tela do fundo para o Safari não criar o efeito elástico que gera essas barras.
+Aqui está o código completo corrigido.
+
+O segredo foi mudar o gradiente para ficar **vertical** (de cima para baixo). Como o seu gradiente antigo era na diagonal, o topo esquerdo tinha uma cor e o topo direito tinha outra, aí o iPhone não conseguia misturar e criava aquelas barras roxas destacadas. Agora, todo o topo e todo o fundo têm a mesma cor exata das barras do iPhone, deixando tudo invisível e liso.
+
+Substitua todo o conteúdo do seu arquivo `index.html` por este:
 
 ```html
 <!DOCTYPE html>
@@ -39,15 +43,15 @@ Aqui está o arquivo inteiro. Substitua tudo por esse código. Ele trava a tela 
       --rose: #c2185b;
     }
 
-    /* ===== CORREÇÃO DEFINITIVA DO FUNDO PARA iOS ===== */
+    /* CORREÇÃO DO FUNDO VERTICAL PARA COMBINAR COM AS BARRAS DO IPHONE */
     html, body {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100dvh;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
+      width: 100%;
+      height: 100%;
+      min-height: 100dvh;
+      background-color: #1a001a;
+      background: linear-gradient(to bottom, #1a001a 0%, #3d0030 50%, #1a001a 100%);
       overflow: hidden;
       overscroll-behavior: none;
       font-family: 'Lato', sans-serif;
