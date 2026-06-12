@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#1a001a" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
   <!-- Meta tags para o preview no WhatsApp/Chats -->
@@ -38,11 +37,9 @@
     body {
       height: 100%;
       font-family: 'Lato', sans-serif;
-      background: #1a001a;
+      background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
       min-height: 100vh;
-      min-height: 100dvh;
-      overflow: hidden;
-      overscroll-behavior: none;
+      overflow-x: hidden;
     }
 
     /* ===== FLOATING HEARTS ===== */
@@ -52,7 +49,6 @@
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
-      background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
     }
 
     .heart-particle {
@@ -93,7 +89,6 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding: 20px 16px;
-      padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
       z-index: 10;
     }
@@ -547,27 +542,6 @@
       }
     }
 
-    /* ===== MOBILE FULLSCREEN ===== */
-    @media (max-width: 639px) {
-      .screen {
-        padding: 0;
-        align-items: stretch;
-        justify-content: flex-start;
-      }
-
-      .card {
-        border-radius: 0;
-        width: 100%;
-        max-width: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: calc(env(safe-area-inset-top) + 28px) 24px calc(env(safe-area-inset-bottom) + 28px);
-        overflow-y: auto;
-      }
-    }
-
     /* ===== DESKTOP ===== */
     @media (min-width: 640px) {
       .card {
@@ -588,7 +562,6 @@
           radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.08) 0%, transparent 60%),
           radial-gradient(ellipse at 80% 20%, rgba(194,24,91,0.08) 0%, transparent 60%),
           linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
-        background-color: #1a001a;
       }
     }
 
@@ -741,7 +714,7 @@
   <div id="georgia-popup" onclick="this.classList.remove('show')">
     <div class="georgia-text">DEUS ME LIVRE!!!!</div>
     <img src="fotos/georgia.png" alt="Géorgia" />
-    <p style="margin-top:24px; color:rgba(255,255,255,0.5); font-size:0.85rem;">toque para fechar</p>
+    <p style="margin-top:24px; color:rgba(255,255,255,0.5); font-size:0.85rem;">toca pra fechar 😂</p>
   </div>
 
   <script>
@@ -822,6 +795,7 @@
       girassois: '🌻 Ver Mar de Girassóis',
       georgia: '卍 Casa da Géorgia',
     };
+    // Labels sem emoji para a mensagem do WhatsApp
     const activityLabelsText = {
       comer: 'Sair pra comer',
       cinema: 'Cinema',
@@ -938,6 +912,7 @@
       document.getElementById('final-time').textContent = timeFormatted;
       document.getElementById('final-acts').textContent = actsList;
 
+      // Monta mensagem sem emojis pra evitar corrompimento na URL
       const msg = 'oii gu lindo gostoso\nnosso date é dia ' + dateFormatted + ' as ' + timeFormatted + '\no que vamos fazer: ' + actsListText;
       const waUrl = 'https://wa.me/5518997028899?text=' + encodeURIComponent(msg);
       document.getElementById('whatsapp-btn').href = waUrl;
@@ -953,6 +928,8 @@
       playError();
       document.getElementById('georgia-popup').classList.add('show');
     }
+
+
   </script>
 </body>
 
