@@ -38,7 +38,9 @@
       height: 100%;
       font-family: 'Lato', sans-serif;
       background: linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
+      background-color: #1a001a;
       min-height: 100vh;
+      min-height: 100dvh;
       overflow-x: hidden;
     }
 
@@ -89,6 +91,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding: 20px 16px;
+      padding-top: calc(20px + env(safe-area-inset-top));
       padding-bottom: calc(20px + env(safe-area-inset-bottom));
       z-index: 10;
     }
@@ -562,6 +565,7 @@
           radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.08) 0%, transparent 60%),
           radial-gradient(ellipse at 80% 20%, rgba(194,24,91,0.08) 0%, transparent 60%),
           linear-gradient(135deg, #1a001a 0%, #3d0030 50%, #1a001a 100%);
+        background-color: #1a001a;
       }
     }
 
@@ -795,7 +799,6 @@
       girassois: '🌻 Ver Mar de Girassóis',
       georgia: '卍 Casa da Géorgia',
     };
-    // Labels sem emoji para a mensagem do WhatsApp
     const activityLabelsText = {
       comer: 'Sair pra comer',
       cinema: 'Cinema',
@@ -912,7 +915,6 @@
       document.getElementById('final-time').textContent = timeFormatted;
       document.getElementById('final-acts').textContent = actsList;
 
-      // Monta mensagem sem emojis pra evitar corrompimento na URL
       const msg = 'oii gu lindo gostoso\nnosso date é dia ' + dateFormatted + ' as ' + timeFormatted + '\no que vamos fazer: ' + actsListText;
       const waUrl = 'https://wa.me/5518997028899?text=' + encodeURIComponent(msg);
       document.getElementById('whatsapp-btn').href = waUrl;
@@ -928,8 +930,6 @@
       playError();
       document.getElementById('georgia-popup').classList.add('show');
     }
-
-
   </script>
 </body>
 
